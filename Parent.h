@@ -7,11 +7,12 @@ using namespace std;
 
 class Parent{
  public:
+  Parent();
   char* getTitle();
   int getYear();
  private:
   int year;
-  char* title;
+  char title[50];
  
 };
 

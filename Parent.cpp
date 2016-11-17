@@ -5,10 +5,18 @@
 
 using namespace std;
 
+Parent::Parent(){
+  cout << "What is the title" << endl;
+  cin.get(title, 50);
+  cout << "Year:";
+  cin >> year;
+  cout << year << endl;
 
 
+}
 
-char* Parent::getTitle(){
+
+char* Parent::getTitle(){  
   return title;
 }
 
