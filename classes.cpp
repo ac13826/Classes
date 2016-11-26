@@ -2,7 +2,8 @@
 #include<string.h>
 #include<vector>
 #include "Parent.h"
-
+#include "movies.h"
+#include "music.h"
 using namespace std;
 
 void addMediaFile(vector<Parent*>*list);
@@ -27,45 +28,50 @@ int main(){
     else{
       return 0;
     }
-    cout << "would you like to continue?" << endl;
-    cin >> program;
-    if((strcmp(program, "no")) == 0){
-      programRun = false;
-    }
+
   }
     
 }
 
 void addMediaFile(vector<Parent*>*list){
-  Parent* media = new Parent;
-  list->push_back(media);
+  char input[15];
+  cout << "What is the media type (music, movie, or game)?" << endl;
+  cin.get(input, 50);
+  if((strcmp(input, "movie")) ==0){
+    movies* m = new movies();
+    list->push_back(m);
+  }
+  else if((strcmp(input, "music")) ==0){
+    music* m = new music();
+    list->push_back(m);
+  }
   
   
 }
 
 void scanMediaFile(vector<Parent*>*list){
   char searchtitle[50];
-  int searchyear;
   char searchinput[10];
   char counter;
-  cout << "Would you like to search by title or year?" << endl;
-  cin >> searchinput;
-  if((strcmp(searchinput, "title"))==0){
-    cout << "Title: ";
-    cin >> searchtitle;//nothing after this works :(((
-    cout << "hello" << endl;
+  cout << "Give the title or the year" << endl;
+  cin >> searchtitle;
     for(vector<Parent*>::iterator it = list->begin(); it != list->end(); ++it){
-      
-      if(strcmp(searchtitle, ((*it)->getTitle())) == 0){
-	cout << "yes" << endl;
-	cout << "Year: " << (*it)->getYear() << endl;
+      if((strcmp(searchtitle, ((*it)->getTitle())) == 0) || (strcmp(searchtitle, ((*it)->getYear())) == 0)){
+	int form = (*it)->getForm();
+	cout << (*it)->getForm() << endl;
+	if(form == 1){
+	  movies* m = (movies*) (*it);
+	  m->print();
+	}
+	if(form == 2){
+	  cout << "haha" << endl;
+	  music* m = (music*) (*it);
+	  m->print();
+	}
       }
     }
 
-  }
-  if((strcmp(searchinput, "year")) == 0){
-      cout << "Year: ";
-      cin >> searchyear;
-  }
+ 
+ 
 
 }

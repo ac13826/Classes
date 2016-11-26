@@ -1,17 +1,18 @@
 #include<iostream>
-#include<vector>
 #include<string.h>
-
+#include "Parent.h"
 
 using namespace std;
 
-class movies{
+class movies : public Parent{//tells movies that it's a child of Parent
  public:
   movies();
+  void print();
   char* getDirector();
   int getDuration();
   char* getRating();
- private:
-  char director;
+ protected:
+  char director[50];
   int duration;
-  char getRating;
+  char rating[10];
+};
