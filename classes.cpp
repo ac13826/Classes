@@ -1,7 +1,9 @@
+//Austin Chang, 11/29 (This better turnin :()
+//Media Database: Add, Search, or Delete any media files descriptions stored in here
 #include<iostream>
 #include<string.h>
 #include<vector>
-#include "Parent.h"
+#include "Parent.h"//additional headers
 #include "movies.h"
 #include "music.h"
 #include "videogames.h"
@@ -38,7 +40,7 @@ int main(){
     
 }
 
-void addMediaFile(vector<Parent*>*list){
+void addMediaFile(vector<Parent*>*list){//adding the file
   char input[15];
   cout << "What is the media type (music, movie, or game)?" << endl;
   cin.get(input, 50);
@@ -58,7 +60,7 @@ void addMediaFile(vector<Parent*>*list){
   
 }
 
-void scanMediaFile(vector<Parent*>*list){
+void scanMediaFile(vector<Parent*>*list){//searching for the file
   char searchtitle[50];
   char searchinput[10];
   char counter;
@@ -85,7 +87,7 @@ void scanMediaFile(vector<Parent*>*list){
     }
 
 }
-void deleteMediaFile(vector<Parent*>*list){
+void deleteMediaFile(vector<Parent*>*list){//deleting files
   char input[50];
   char deleteTitle[50];
   char deleteYear[5];
